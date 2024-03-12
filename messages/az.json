@@ -1,0 +1,14 @@
+{
+  "Blog": {
+    "content": "Bloq sehifesi"
+  },
+  "Navbar": {
+    "home": "Ana sehife",
+    "blog": "Bloq",
+    "about": "Haqqimizda"
+  },
+  "About": {
+    "product": "Mehsul 1",
+    "slug": "Mehsul 1 kateqoriyasi"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "Blog": {
+    "content": "Blog page"
+  },
+  "Navbar": {
+    "home": "Home",
+    "blog": "Blog",
+    "about": "About"
+  },
+  "About": {
+    "product": "Product 1",
+    "slug": "Product 1 categories"
+  }
+}

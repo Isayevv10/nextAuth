@@ -2,6 +2,7 @@
   "name": "nextest",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -9,16 +10,27 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "react": "^18",
-    "react-dom": "^18",
-    "next": "14.0.2"
+    "@types/bcryptjs": "^2.4.6",
+    "@types/nodemailer": "^6.4.14",
+    "bcrypt": "^5.1.1",
+    "bcryptjs": "^2.4.3",
+    "mongodb": "^6.4.0",
+    "mongoose": "^8.2.1",
+    "next": "14.0.2",
+    "next-auth": "^4.24.7",
+    "next-intl": "^3.7.0",
+    "nodemailer": "^6.9.7",
+    "openssl": "^2.0.0",
+    "react": "^0.0.0-experimental-6b3834a45-20231110",
+    "react-dom": "^0.0.0-experimental-6b3834a45-20231110"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@types/bcrypt": "^5.0.2",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "eslint": "^8",
-    "eslint-config-next": "14.0.2"
+    "eslint-config-next": "14.0.2",
+    "typescript": "^5"
   }
 }
