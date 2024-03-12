@@ -1,4 +1,6 @@
+import { SessionProvider } from "next-auth/react";
 import { NextIntlClientProvider, useMessages } from "next-intl";
+import { AuthProvider } from "./Providers";
 
 export default function LocaleLayout({
   children,
@@ -8,11 +10,12 @@ export default function LocaleLayout({
   params: { locale: string };
 }) {
   const messages = useMessages();
+
   return (
     <html lang={locale}>
       <body>
         <NextIntlClientProvider locale={locale} messages={messages}>
-          {children}
+          <AuthProvider>{children}</AuthProvider>
         </NextIntlClientProvider>
       </body>
     </html>
