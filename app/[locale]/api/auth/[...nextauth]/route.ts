@@ -1,7 +1,11 @@
+import { connectMongoDB } from "@/lib/mongodb";
+import User from "@/models/user";
 import NextAuth from "next-auth/next";
 import CredentialsProvider, {
   CredentialsConfig,
 } from "next-auth/providers/credentials";
+import bcrypt from "bcryptjs";
+import RenderResult from "next/dist/server/render-result";
 
 interface IAuthOptions {
   authOptions: {
@@ -16,16 +20,35 @@ interface IAuthOptions {
   };
 }
 
-const authOptions: IAuthOptions = {
+export const authOptions: IAuthOptions = {
   // @ts-ignore
 
   providers: [
     CredentialsProvider({
       name: "credentials",
       credentials: {},
-      async authorize(credentials) {
-        const user = { id: "1" };
-        return user;
+      // @ts-ignore
+      async authorize(credentials: { email: string; password: string }) {
+        const { email, password } = credentials;
+
+        try {
+          await connectMongoDB();
+          const user = await User.findOne({ email });
+
+          if (!user) {
+            return null;
+          }
+
+          const passwordsMatch = await bcrypt.compare(password, user.password);
+
+          if (!passwordsMatch) {
+            return null;
+          }
+
+          return user;
+        } catch (error) {
+          console.log("Error", error);
+        }
       },
     }),
   ],

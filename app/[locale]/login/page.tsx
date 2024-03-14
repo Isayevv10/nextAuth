@@ -1,24 +1,17 @@
-import Link from "next/link";
+import LoginForm from "@/components/Login/LoginForm";
 import React from "react";
+import { getServerSession } from "next-auth";
+import { redirect } from "next/navigation";
+import { authOptions } from "../api/auth/[...nextauth]/route";
 
-const page = () => {
+const page = async () => {
+  const session = await getServerSession(authOptions as never);
+  if (session) redirect("/dashboard");
+
   return (
-    <div>
-      <p>Login Page</p>
-      <form action="">
-        <div>
-          <input type="email" name="" id="" required placeholder="EMAIL" />
-        </div>
-        <div>
-          <input type="password" name="" required placeholder="PASSWORD" />
-        </div>
-        <button type="submit">SUBMIT</button>
-        <div style={{ display: "flex" }}>
-          <span>Don't have an account ?</span>
-          <Link href="/register">Register</Link>
-        </div>
-      </form>
-    </div>
+    <>
+      <LoginForm />
+    </>
   );
 };
 
