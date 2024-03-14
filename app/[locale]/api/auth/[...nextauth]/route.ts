@@ -60,6 +60,7 @@ export const authOptions: IAuthOptions = {
   secret: process.env.NEXTAUTH_SECRET,
   pages: {
     signIn: "/login",
+    signOut: "/register",
   },
 };
 // @ts-ignore
