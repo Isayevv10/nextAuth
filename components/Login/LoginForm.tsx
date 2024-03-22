@@ -3,6 +3,8 @@
 import { signIn } from "next-auth/react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import "@/style/loginForm.scss";
+
 import React, { FormEvent, useState } from "react";
 
 const LoginForm = () => {
@@ -11,7 +13,9 @@ const LoginForm = () => {
     password: "",
     error: "",
   });
+
   const router = useRouter();
+
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
 
@@ -34,41 +38,46 @@ const LoginForm = () => {
   };
 
   return (
-    <div>
-      <p>Login Page</p>
-      <form action="" onSubmit={handleSubmit}>
-        <div>
-          <input
-            type="email"
-            name=""
-            id=""
-            placeholder="EMAIL"
-            value={inputData.email}
-            onChange={(e) =>
-              setInputData({ ...inputData, email: e.target.value })
-            }
-          />
-        </div>
-        <div>
-          <input
-            type="password"
-            name=""
-            placeholder="PASSWORD"
-            value={inputData.password}
-            onChange={(e) =>
-              setInputData({ ...inputData, password: e.target.value })
-            }
-          />
-        </div>
+    <div className="container">
+      <div className="form">
+        <header>Login Page</header>
+        <form action="" onSubmit={handleSubmit}>
+          <div className="field input-field">
+            <input
+              type="email"
+              name=""
+              id=""
+              placeholder="Email"
+              value={inputData.email}
+              onChange={(e) =>
+                setInputData({ ...inputData, email: e.target.value })
+              }
+            />
+          </div>
+          <div className="field input-field">
+            <input
+              type="password"
+              name=""
+              placeholder="Password"
+              value={inputData.password}
+              onChange={(e) =>
+                setInputData({ ...inputData, password: e.target.value })
+              }
+            />
+          </div>
 
-        {inputData.error && <div>{inputData.error}</div>}
+          {inputData.error && <div>{inputData.error}</div>}
 
-        <button type="submit">SUBMIT</button>
-        <div style={{ display: "flex" }}>
-          <span>Don't have an account ?</span>
-          <Link href="/register">Register</Link>
-        </div>
-      </form>
+          <div className="field input-field">
+            <button type="submit">Login</button>
+          </div>
+
+          <div className="form-link">
+            <span>Don't have an account ?</span>
+            <Link href="/register">Register</Link>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };

@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React, { FormEvent, useState } from "react";
+import "@/style/registerForm.scss";
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -66,52 +67,56 @@ const Register = () => {
   };
 
   return (
-    <div>
-      <p>Register Page</p>
-      <form action="" onSubmit={handleSubmit}>
-        <div>
-          <input
-            type="text"
-            name=""
-            placeholder="FULL NAME"
-            value={formData.name}
-            onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-          />
-        </div>
-        <div>
-          <input
-            type="email"
-            name=""
-            placeholder="EMAIL"
-            value={formData.email}
-            onChange={(e) =>
-              setFormData({ ...formData, email: e.target.value })
-            }
-          />
-        </div>
-        <div>
-          <input
-            type="password"
-            name=""
-            placeholder="PASSWORD"
-            value={formData.password}
-            onChange={(e) =>
-              setFormData({ ...formData, password: e.target.value })
-            }
-          />
-        </div>
+    <div className="container">
+      <div className="form">
+        <header>Register Page</header>
+        <form action="" onSubmit={handleSubmit}>
+          <div className="field input-field">
+            <input
+              type="text"
+              name=""
+              placeholder="Full name"
+              value={formData.name}
+              onChange={(e) =>
+                setFormData({ ...formData, name: e.target.value })
+              }
+            />
+          </div>
+          <div className="field input-field">
+            <input
+              type="email"
+              name=""
+              placeholder="Email"
+              value={formData.email}
+              onChange={(e) =>
+                setFormData({ ...formData, email: e.target.value })
+              }
+            />
+          </div>
+          <div className="field input-field">
+            <input
+              type="password"
+              name=""
+              placeholder="Password"
+              value={formData.password}
+              onChange={(e) =>
+                setFormData({ ...formData, password: e.target.value })
+              }
+            />
+          </div>
 
-        {formData.error && <div>{formData.error}</div>}
+          {formData.error && <div>{formData.error}</div>}
 
-        <div>
-          <button type="submit">SUBMIT</button>
-        </div>
+          <div className="field input-field">
+            <button type="submit">Register</button>
+          </div>
 
-        <div>
-          <span>Do youi have an account ? </span>
-          <Link href="/login">Login</Link>
-        </div>
-      </form>
+          <div className="form-link">
+            <span>Do youi have an account ? </span>
+            <Link href="/login">Login</Link>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };

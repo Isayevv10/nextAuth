@@ -6,7 +6,6 @@ import React, { useEffect } from "react";
 
 const page = () => {
   const { data: session, status } = useSession();
-  console.log(status);
 
   useEffect(() => {
     if (status === "unauthenticated") {

@@ -22,7 +22,9 @@
     "nodemailer": "^6.9.7",
     "openssl": "^2.0.0",
     "react": "^0.0.0-experimental-6b3834a45-20231110",
-    "react-dom": "^0.0.0-experimental-6b3834a45-20231110"
+    "react-dom": "^0.0.0-experimental-6b3834a45-20231110",
+    "sass": "^1.72.0",
+    "scss": "^0.2.4"
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.2",
